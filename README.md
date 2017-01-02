@@ -6,7 +6,7 @@ user parameters for a program.
 To create a dialog box where the user can enter parameters include
 the following
 ```cpp
-  #include "dialogBox.hpp"
+  #include <pei/dialogBox.hpp>
   #include <map>
   #include <string>
 ```
@@ -31,7 +31,7 @@ box.show();
 
 Full example file
 ```cpp
-#include "dialogBox.hpp"
+#include <pei/dialogBox.hpp>
 #include <map>
 #include <string>
 
