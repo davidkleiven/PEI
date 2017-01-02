@@ -21,6 +21,7 @@ void pei::DialogBox::init()
 
   // Allocate window
   window = new Fl_Window( width, height );
+  window->label("Enter Parameters");
 
   unsigned int counter = 0;
   for ( auto iter=params->begin(); iter != params->end(); ++iter )
