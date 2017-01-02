@@ -9,7 +9,6 @@ the following
   #include "dialogBox.hpp"
   #include <map>
   #include <string>
-  #include <stdexcept>
 ```
 
 In the main function create a map and initialize it.
@@ -35,7 +34,6 @@ Full example file
 #include "dialogBox.hpp"
 #include <map>
 #include <string>
-#include <stdexcept>
 
 using namespace std;
 
