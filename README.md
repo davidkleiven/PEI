@@ -24,7 +24,7 @@ params["ThirdParam"] = 3.0;
 Create a dialogbox , initialize it and display the content.
 
 ```cpp
-pei::DialogBox box;
+pei::DialogBox box( params );
 box.init();
 box.show();
 ```
@@ -47,7 +47,7 @@ int main()
   params["ThirdParam"] = 3.0;
 
   // Create the dialogbox
-  pei::DialogBox box;
+  pei::DialogBox box( params );
   box.init();
   box.show();
 }
