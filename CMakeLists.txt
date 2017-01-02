@@ -17,3 +17,6 @@ find_package( OpenGL REQUIRED )
 
 add_executable( example.out Examples/example1.cpp )
 target_link_libraries( example.out ${LIB} pei)
+
+set( HEADERS include/dialogBox.hpp)
+install( FILES ${HEADER} DESTINATION ${INSTALL_INCLUDE_DIR}/pei )
