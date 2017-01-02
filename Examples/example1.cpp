@@ -2,6 +2,7 @@
 #include <map>
 #include <string>
 #include <iostream>
+#include <stdexcept>
 
 using namespace std;
 
@@ -24,9 +25,22 @@ int main( int argc, char** argv )
 
   cout << "Before edited map contains\n";
   printMap( params );
-  pei::DialogBox box( params );
-  box.init();
-  box.show();
+  try
+  {
+    pei::DialogBox box( params );
+    box.init();
+    box.show();
+  }
+  catch ( exception &exc )
+  {
+    cout << exc.what() << endl;
+    return 1;
+  }
+  catch (...)
+  {
+    cout << "Unknown exception!\n";
+    return 1;
+  }
 
   cout << "\nAfter editing in GUI\n";
   printMap( params );
