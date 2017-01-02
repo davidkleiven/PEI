@@ -1,6 +1,6 @@
 # PEI
 Parameter Entry Interface (PEI) is a small GUI library for getting
-user parameters for a program.
+parameters from the user.
 
 # Usage
 To create a dialog box where the user can enter parameters include
