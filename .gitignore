@@ -1,0 +1,7 @@
+# Ignored files
+
+*.cmake
+CMakeFiles/*
+Makefile
+CMakeCache.txt
+src/CMakeFiles/*
