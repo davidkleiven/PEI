@@ -7,3 +7,4 @@ CMakeCache.txt
 src/CMakeFiles/*
 *.out
 src/*.so
+install_manifest.txt
