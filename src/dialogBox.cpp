@@ -26,13 +26,14 @@ void pei::DialogBox::init()
   unsigned int counter = 0;
   for ( auto iter=params->begin(); iter != params->end(); ++iter )
   {
-    unsigned int y = getEntryPos( counter++ );
+    unsigned int y = getEntryYPos( counter );
+    unsigned int x = getEntryXPos( counter++ );
     if ( y >= height-entryHeight ) break;
 
     stringstream ss;
     ss << iter->second;
 
-    input.push_back( new Fl_Float_Input( getX(entryXPos), y, getX(entryWidth), getY(entryHeight), iter->first.c_str() ) );
+    input.push_back( new Fl_Float_Input( x, y, getX(entryWidth), getY(entryHeight), iter->first.c_str() ) );
     input.back()->value( ss.str().c_str() );
   }
 
@@ -41,9 +42,18 @@ void pei::DialogBox::init()
   initDisabled = true;
 }
 
-unsigned int pei::DialogBox::getEntryPos( unsigned int number ) const
+unsigned int pei::DialogBox::getEntryYPos( unsigned int number ) const
 {
-  return number*getY(entryHeight)*( 1.0 + entrySepFracOfHeight ) + entrySepFracOfHeight*getY(entryHeight);
+  return (number/2)*getY(entryHeight)*( 1.0 + entrySepFracOfHeight ) + entrySepFracOfHeight*getY(entryHeight);
+}
+
+unsigned int pei::DialogBox::getEntryXPos( unsigned int number ) const
+{
+  if ( number%2 == 0 )
+  {
+    return 0.3*width;
+  }
+  return 0.8*width;
 }
 
 int pei::DialogBox::show()

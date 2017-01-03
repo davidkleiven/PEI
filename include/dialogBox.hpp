@@ -20,19 +20,22 @@ namespace pei
     int show();
   private:
     std::map<std::string,double> *params;
-    unsigned int width{480};
+    unsigned int width{720};
     unsigned int height{640};
     Fl_Window *window{NULL};
     Fl_Return_Button *ok;
     std::vector<Fl_Float_Input*> input;
     bool initDisabled{false};
-    double entryWidth{0.3};
+    double entryWidth{0.2};
     double entryHeight{0.03};
     double entryXPos{0.6};
     double entrySepFracOfHeight{0.33};
 
     /** Get the position of the n-th entry box */
-    unsigned int getEntryPos( unsigned int number ) const;
+    unsigned int getEntryXPos( unsigned int number ) const;
+
+    /** Get entry y-position of the n-th entry box */
+    unsigned int getEntryYPos( unsigned int number ) const;
 
     /** Initialize the dialogbox */
     void init();
