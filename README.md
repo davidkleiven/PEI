@@ -50,3 +50,15 @@ int main()
   box.show();
 }
 ```
+
+# Installation
+After cloning the repository the library can be installed by
+```bash
+cmake .
+make
+sudo make install
+```
+This will put the header files in */usr/local/include/pei* and the shared
+library file to */usr/local/lib*.
+These paths can be changed by modifying the *INSTALL_INCLUDE_DIR* and the
+*INSTALL_LIB_DIR* in CMakeLists.txt.
