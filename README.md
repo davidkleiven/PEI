@@ -48,6 +48,7 @@ int main()
   // Create the dialogbox
   pei::DialogBox box( params );
   box.show();
+  return 0;
 }
 ```
 
