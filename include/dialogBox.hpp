@@ -16,9 +16,6 @@ namespace pei
     DialogBox( std::map<std::string,double> &params ):params(&params){};
     ~DialogBox();
 
-    /** Initialize the dialogbox */
-    void init();
-
     /** Display the dialogbox */
     int show();
   private:
@@ -37,10 +34,19 @@ namespace pei
     /** Get the position of the n-th entry box */
     unsigned int getEntryPos( unsigned int number ) const;
 
+    /** Initialize the dialogbox */
+    void init();
+
+    /** Get the global coordinate in horizontal direction crd =[0,1] */
     unsigned int getX( double crd ) const { return width*crd; };
+
+    /** Ge the global coordinate in vertical direction crd=[0,1] */
     unsigned int getY( double crd ) const { return height*crd; };
 
+    /** Callback function for the return button */
     static void okCallback( Fl_Widget *button, void *dialogBox );
+
+    /** Convert const char* to double */
     static double getNumber( const char* value );
   };
 }

@@ -50,7 +50,7 @@ int pei::DialogBox::show()
 {
   if ( !initDisabled )
   {
-    throw (runtime_error("The init function has not been called!"));
+    init();
   }
 
   window->end();

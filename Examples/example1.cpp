@@ -28,7 +28,6 @@ int main( int argc, char** argv )
   try
   {
     pei::DialogBox box( params );
-    box.init();
     box.show();
   }
   catch ( exception &exc )
