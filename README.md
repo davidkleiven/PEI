@@ -62,3 +62,8 @@ This will put the header files in */usr/local/include/pei* and the shared
 library file to */usr/local/lib*.
 These paths can be changed by modifying the *INSTALL_INCLUDE_DIR* and the
 *INSTALL_LIB_DIR* in CMakeLists.txt.
+
+# Dependencies
+In order to install this library [FLTK](http://www.fltk.org/index.php)
+needs to installed.
+In addition support for OpenGL is required.
