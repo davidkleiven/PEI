@@ -30,6 +30,7 @@ namespace pei
     double entryHeight{0.03};
     double entryXPos{0.6};
     double entrySepFracOfHeight{0.33};
+    std::string backupFname{"dialogBoxBackupParameters.csv"};
 
     /** Get the position of the n-th entry box */
     unsigned int getEntryXPos( unsigned int number ) const;
@@ -45,6 +46,12 @@ namespace pei
 
     /** Ge the global coordinate in vertical direction crd=[0,1] */
     unsigned int getY( double crd ) const { return height*crd; };
+
+    /** Save the parameters. They will be re*/
+    void save();
+
+    /** Read back the previous values for the parameters */
+    void readPrevParams();
 
     /** Callback function for the return button */
     static void okCallback( Fl_Widget *button, void *dialogBox );

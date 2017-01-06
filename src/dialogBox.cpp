@@ -2,6 +2,7 @@
 #include <stdexcept>
 #include <iostream>
 #include <sstream>
+#include <fstream>
 
 using namespace std;
 
@@ -19,6 +20,7 @@ void pei::DialogBox::init()
 {
   if ( initDisabled ) return;
 
+  readPrevParams();
   // Allocate window
   window = new Fl_Window( width, height );
   window->label("Enter Parameters");
@@ -79,6 +81,7 @@ void pei::DialogBox::okCallback( Fl_Widget *button, void *box )
     ++iter;
   }
   self->window->hide();
+  self->save();
 }
 
 double pei::DialogBox::getNumber( const char* value )
@@ -88,4 +91,40 @@ double pei::DialogBox::getNumber( const char* value )
   double returnVal;
   ss >> returnVal;
   return returnVal;
+}
+
+void pei::DialogBox::save()
+{
+  ofstream os;
+  os.open(backupFname.c_str());
+  if ( !os.good() ) return;
+
+  for ( auto iter=params->begin(); iter != params->end(); ++iter )
+  {
+    os << iter->first << "," << iter->second << "\n";
+  }
+  os.close();
+}
+
+void pei::DialogBox::readPrevParams()
+{
+  ifstream infile;
+  infile.open( backupFname.c_str() );
+
+  if ( !infile.good() ) return;
+
+  params->clear();
+  string first;
+  double second;
+  char comma;
+  string line;
+  while ( getline(infile,line) )
+  {
+    unsigned int commaPos = line.find(",");
+    first = line.substr(0,commaPos);
+    stringstream ss(line.substr(commaPos+1));
+    ss >> second;
+    params->insert( pair<string,double>(first,second) );
+  }
+  infile.close();
 }
