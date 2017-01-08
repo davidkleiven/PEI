@@ -3,6 +3,7 @@ project( PEI )
 set( INSTALL_LIB_DIR "/usr/local/lib" )
 set( INSTALL_INCLUDE_DIR "/usr/local/include" )
 
+set( CMAKE_CXX_STANDARD 11 )
 include_directories( include )
 add_subdirectory( src )
 
