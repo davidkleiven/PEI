@@ -58,6 +58,9 @@ namespace pei
 
     /** Convert const char* to double */
     static double getNumber( const char* value );
+
+    /** Check whether the key in two maps are equal */
+    static bool keysAreEqual( const std::map<std::string,double> &map1, const std::map<std::string,double> &map2 );
   };
 }
 #endif

@@ -113,18 +113,44 @@ void pei::DialogBox::readPrevParams()
 
   if ( !infile.good() ) return;
 
-  params->clear();
   string first;
   double second;
   char comma;
   string line;
+  map<string,double> optionsFromFile;
   while ( getline(infile,line) )
   {
     unsigned int commaPos = line.find(",");
     first = line.substr(0,commaPos);
     stringstream ss(line.substr(commaPos+1));
     ss >> second;
-    params->insert( pair<string,double>(first,second) );
+    optionsFromFile.insert( pair<string,double>(first,second) );
+
   }
   infile.close();
+
+  if ( keysAreEqual(optionsFromFile, *params) )
+  {
+    *params = optionsFromFile;
+  }
+}
+
+bool pei::DialogBox::keysAreEqual( const map<string,double> &map1, const map<string,double> &map2 )
+{
+  if ( map1.size() != map2.size() )
+  {
+    return false;
+  }
+
+  auto iter1 = map1.begin();
+  for ( auto iter2=map2.begin(); iter2 != map2.end(); ++iter2 )
+  {
+    if ( iter1->first != iter2->first )
+    {
+      return false;
+    }
+    ++iter1;
+  }
+
+  return true;
 }
